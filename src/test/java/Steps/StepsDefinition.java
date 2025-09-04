@@ -35,13 +35,39 @@ public class StepsDefinition extends Base {
 
     }
 
+    @When("I add an item to the cart")
+    public void i_add_an_item_to_the_cart() {
+
+        landingPage.clickAddToCartButton();
+
+    }
+
+    @When("I click on the cart button")
+    public void i_click_on_the_cart_button() {
+
+        landingPage.clickCartButton();
+
+    }
+
+    @Then("I verify that the item is in the cart")
+    public void i_verify_that_the_item_is_in_the_cart() {
+        landingPage.confirmAddedToCart();
+
+    }
+
+    @When("I click on the checkout button")
+    public void i_click_on_the_checkout_button() {
+
+    }
+
+
     @AfterStep
     public void addScreenshot(Scenario scenario) {
-        if (scenario.isFailed()) {
+        //if (scenario.isFailed()) {
             final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", "screenshot");
         }
-    }
+    //}
 
     @After
     public void close_browser() {

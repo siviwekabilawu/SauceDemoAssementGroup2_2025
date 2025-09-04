@@ -5,6 +5,10 @@ Feature: Purchase Item
     When I enter a valid username "<username>" and a valid password "<password>"
     And I click on the login button
     Then I am logged in successfully
+    When I add an item to the cart
+    And I click on the cart button
+    Then I verify that the item is in the cart
+    When I click on the checkout button
 
     Examples:
       | username      | password     |

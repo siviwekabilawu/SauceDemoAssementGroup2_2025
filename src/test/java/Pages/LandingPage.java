@@ -15,6 +15,18 @@ public class LandingPage {
     @FindBy(css = "span.title[data-test='title']")
     WebElement productsTitle;
 
+    @FindBy(id="add-to-cart-sauce-labs-backpack")
+    WebElement addToCartButton;
+
+    @FindBy(id = "remove-sauce-labs-backpack")
+    WebElement removeFromCartButton;
+
+    @FindBy(className = "shopping_cart_link")
+    WebElement emptyCart;
+
+    @FindBy(className = "shopping_cart_badge")
+    WebElement fullCart;
+
 
     public LandingPage(WebDriver driver) {
         this.driver = driver;
@@ -24,5 +36,29 @@ public class LandingPage {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(productsTitle));
         productsTitle.isDisplayed();
     }
+
+    public void clickAddToCartButton() {
+        addToCartButton.click();
+    }
+
+    public void confirmAddedToCart() {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(fullCart));
+        fullCart.isDisplayed();
+    }
+
+    public void clickCartButton() {
+        fullCart.click();
+    }
+
+    public void clickRemoveFromCartButton() {
+        removeFromCartButton.click();
+    }
+
+    public void confirmCartIsEmpty() {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(emptyCart));
+        emptyCart.isDisplayed();
+    }
+
+
 
 }
