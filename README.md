@@ -1,17 +1,8 @@
 # Sauce Demo cucumber java assessment
 
-This will be my framework for the Sauce Demo cucumber java assessment.
-
-# Selenium Java Cucumber Automation Framework
-
-This project is a **BDD test automation framework** using:
-- **Java** (programming language)
-- **Selenium WebDriver** (UI automation)
-- **Cucumber** (behavior-driven development)
-- **Maven** (dependency management & build tool)
-- **JUnit/TestNG** (test runner – configurable)
-
-This repository contains an automated testing framework for the Sauce Demo web application, built using Java, Cucumber, Maven and Selenium WebDriver. The framework is structured for maintainability and scalability, following best practices for BDD (Behavior-Driven Development).
+This repository contains an automated testing framework for the Sauce Demo web application, built using Java, 
+Cucumber, Maven and Selenium WebDriver. The framework is structured for maintainability and scalability, 
+following best practices for BDD (Behavior-Driven Development).
 
 ## 📂 Project Structure
 
