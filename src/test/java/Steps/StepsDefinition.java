@@ -2,7 +2,11 @@ package Steps;
 
 import Utils.Base;
 import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.*;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 public class StepsDefinition extends Base {
 
@@ -29,6 +33,14 @@ public class StepsDefinition extends Base {
     public void i_am_logged_in_successfully() {
         landingPage.verifyProductTitleIsDisplayed();
 
+    }
+
+    @AfterStep
+    public void addScreenshot(Scenario scenario) {
+        if (scenario.isFailed()) {
+            final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenshot, "image/png", "screenshot");
+        }
     }
 
     @After
