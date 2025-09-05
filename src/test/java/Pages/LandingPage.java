@@ -18,12 +18,6 @@ public class LandingPage {
     @FindBy(id="add-to-cart-sauce-labs-backpack")
     WebElement addToCartButton;
 
-    @FindBy(id = "remove-sauce-labs-backpack")
-    WebElement removeFromCartButton;
-
-    @FindBy(className = "shopping_cart_link")
-    WebElement emptyCart;
-
     @FindBy(className = "shopping_cart_badge")
     WebElement fullCart;
 
@@ -49,16 +43,6 @@ public class LandingPage {
     public void clickCartButton() {
         fullCart.click();
     }
-
-    public void clickRemoveFromCartButton() {
-        removeFromCartButton.click();
-    }
-
-    public void confirmCartIsEmpty() {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(emptyCart));
-        emptyCart.isDisplayed();
-    }
-
 
 
 }

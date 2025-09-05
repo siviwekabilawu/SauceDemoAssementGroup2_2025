@@ -58,20 +58,26 @@ public class StepsDefinition extends Base {
     @When("I click on the checkout button")
     public void i_click_on_the_checkout_button() {
 
+        yourCartPage.clickCheckoutButton();
+
     }
 
 
     @AfterStep
     public void addScreenshot(Scenario scenario) {
-        //if (scenario.isFailed()) {
+        if (scenario.isFailed()) {
             final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", "screenshot");
         }
-    //}
+    }
 
     @After
     public void close_browser() {
         driver.quit();
     }
 
+    @Then("The your information page is displayed")
+    public void theYourInformationPageIsDisplayed() {
+        informationPage.verifyYourInformationHeadingIsDisplayed();
+    }
 }
